@@ -3,9 +3,12 @@ import { AnyAction, Reducer } from './types'
 export const whenAction = <S>(...reducers: readonly Reducer<S, { type: any } | any>[]) => {
   const reduce = reducers.reduce(reduceReducer, identityReducer)
 
-  return (initialState: S) =>
-    (state: S = initialState, action: AnyAction<any>): S =>
-      reduce(state, action)
+  return (...initialState: [] | [S]) =>
+    initialState.length === 0
+      ? (state: S, action: AnyAction<any>): S =>
+        reduce(state, action)
+      : (state: S = initialState[0], action: AnyAction<any>): S =>
+        reduce(state, action)
 }
 
 export const is = <S, T extends string, A extends { type: T }>(

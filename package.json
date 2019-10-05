@@ -1,7 +1,7 @@
 {
   "name": "flux-assistant",
-  "version": "1.0.5",
-  "description": "Concisely expressive tool with handy utilities for your TypeScript Flux/Redux applications.",
+  "version": "1.0.6",
+  "description": "Concisely expressive tool with handy utilities for your Flux/Redux applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
